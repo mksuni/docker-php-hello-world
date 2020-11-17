@@ -1,2 +1,2 @@
-FROM php:5.6-apache
+FROM php:apache
 COPY public/ /var/www/html/
