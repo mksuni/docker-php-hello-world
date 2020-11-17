@@ -1,10 +1,17 @@
 <?php
+/**
+ * Front to the WordPress application. This file doesn't do anything, but loads
+ * wp-blog-header.php which does and tells WordPress to load the theme.
+ *
+ * @package WordPress
+ */
 
-$conn = mysqli_init();
-mysqli_ssl_set($conn,NULL,NULL, "/var/www/html/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
-mysqli_real_connect($conn, getenv('DBHOST'), getenv('USER'), getenv('PASSWORD'),'flexibleserverdb', 3306, MYSQLI_CLIENT_SSL);
-if (mysqli_connect_errno($conn)) {
-die('Failed to connect to MySQL: '.mysqli_connect_error());
-}
+/**
+ * Tells WordPress to load the WordPress theme and output it.
+ *
+ * @var bool
+ */
+define( 'WP_USE_THEMES', true );
 
-?>
+/** Loads the WordPress Environment and Template */
+require __DIR__ . '/wp-blog-header.php';
