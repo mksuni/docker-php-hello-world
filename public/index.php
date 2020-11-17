@@ -1,5 +1,4 @@
 <?php
-echo getenv('DBHOST');
 
 $conn = mysqli_init();
 mysqli_ssl_set($conn,NULL,NULL, "/var/www/html/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
