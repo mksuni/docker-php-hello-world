@@ -1,19 +1,10 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Docker PHP Hello World</title>
-  </head>
-  <body>
-    <? if ($_POST['who'] != '') {?>
-      <h1>Hello <? echo htmlspecialchars($_POST['who']); ?></h1>
-      <a href="index.php">Greet someone else</a>
-    <? } else { ?>
-      <form class="greetingForm" action="index.php" method="post">
-        <label for="who">Say hello to</label>
-        <input type="text" name="who">
-        <input type="submit" name="greet" value="Say Hello">
-      </form>
-    <? } ?>
-  </body>
-</html>
+<?php
+
+$conn = mysqli_init();
+mysqli_ssl_set($conn,NULL,NULL, "/var/www/html/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
+mysqli_real_connect($conn, 'mydemoserver.mysql.database.azure.com', 'myadmin', 'yourpassword', 'quickstartdb', 3306, MYSQLI_CLIENT_SSL);
+if (mysqli_connect_errno($conn)) {
+die('Failed to connect to MySQL: '.mysqli_connect_error());
+}
+
+?>
